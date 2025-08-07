@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthdayy</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffe4e6, #fce7f3);
+      overflow-x: hidden;
+    }
+    .envelope {
+      position: relative;
+      width: 90%;
+      max-width: 300px;
+      height: 180px;
+      margin: 4rem auto;
+      cursor: pointer;
+      perspective: 1000px;
+      z-index: 2;
+    }
+    .envelope-inner {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .envelope.flipped .envelope-inner {
+      transform: rotateX(180deg);
+    }
+    .flap-front, .flap-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flap-front {
+      background: linear-gradient(145deg, #f43f5e, #f87171);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .flap-back {
+      background: #fff1f2;
+      transform: rotateX(180deg);
+      border: 2px dashed #f87171;
+      flex-direction: column;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      position: relative;
+    }
+    .envelope.flipped .flap-back {
+      opacity: 1;
+    }
+    .flap-back h3 {
+      font-size: 1.25rem;
+      color: #f43f5e;
+      font-weight: bold;
+      animation: fadeInUp 1s ease-out;
+      margin-top: 4rem;
+    }
+    .flap-back::after {
+      content: "🎂";
+      font-size: 2.5rem;
+      position: absolute;
+      top: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .surat-container {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      max-width: 700px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+    .surat {
+      background: #fff5f5;
+      border: 3px dotted #f87171;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      font-family: 'Comic Sans MS', cursive;
+      position: relative;
+      z-index: 2;
+    }
+    .surat::before {
+      content: "🎉";
+      font-size: 2rem;
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      animation: bounce 1.5s infinite;
+    }
+    .surat::after {
+      content: "🎂";
+      font-size: 2rem;
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      animation: bounce 1.5s infinite alternate;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .foto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .foto-grid img {
+      border-radius: 1rem;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+      height: auto;
+      width: 100%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .love-falling {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .love {
+      position: absolute;
+      animation: fall 6s linear infinite;
+      font-size: 1.5rem;
+      opacity: 0.8;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100vh); }
+    }
+    @media screen and (max-width: 480px) {
+      .surat {
+        padding: 1.2rem;
+        font-size: 0.9rem;
+      }
+      .foto-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flap-front {
+        font-size: 1.2rem;
+      }
+      .flap-back h3 {
+        font-size: 1rem;
+        margin-top: 2rem;
+      }
+    }
+
+.scrolling-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  background-image: 
+    linear-gradient(90deg, #ffb3d9 25%, transparent 25%, transparent 50%, #ffb3d9 50%, #ffb3d9 75%, transparent 75%, transparent),
+    linear-gradient(#ffb3d9 25%, transparent 25%, transparent 50%, #ffb3d9 50%, #ffb3d9 75%, transparent 75%, transparent);
+  background-size: 80px 80px; /* lebih besar */
+  animation: scrollBG 5s linear infinite; /* lebih cepat */
+  z-index: -10;
+  opacity: 0.4;
+}
+
+@keyframes scrollBG {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 160px 160px; /* disesuaikan dengan size */
+  }
+}
+
+  </style>
+</head>
+<body class="min-h-screen py-12 px-4 text-center">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Swal.fire({
+        title: 'Selamat Ulang Tahun! 🎉',
+        text: 'Kiw Kiww Ketua ultah nihh happy +1 yaa! 🎂💖',
+        icon: 'success',
+        confirmButtonText: 'Buka Surat ✉️'
+      });
+
+      // animasi love jatuh sedikit
+      const loveContainer = document.createElement('div');
+      loveContainer.classList.add('love-falling');
+      document.body.appendChild(loveContainer);
+
+      for (let i = 0; i < 10; i++) {
+        const love = document.createElement('div');
+        love.classList.add('love');
+        love.style.left = Math.random() * 100 + 'vw';
+        love.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        love.textContent = '🍨';
+        loveContainer.appendChild(love);
+      }
+    });
+
+    function bukaSurat() {
+      const envelope = document.querySelector('.envelope');
+      envelope.classList.add('flipped');
+      setTimeout(() => {
+        document.querySelector('.surat-container').style.opacity = 1;
+      }, 800);
+    }
+  </script>
+
+  <div class="envelope" onclick="bukaSurat()">
+    <div class="envelope-inner">
+      <div class="flap-front">✉️ Klik untuk Buka</div>
+      <div class="flap-back">
+        <h3>A little something for you on your special day.</h3>
+      </div>
+    </div>
+  </div>
+<div class="scrolling-bg"></div>
+
+  <div class="surat-container">
+    <div class="surat">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">Dear Kamu yang Maniss,</h2>
+      <p class="mb-4">Selamat ulang tahun! Semoga di usiamu yang baru ini kamu diberikan banyak kebahagiaan, kesehatan, dan kesuksesan. 🎈</p>
+      <p class="mb-4">Terima kasih sudah menjadi pribadi yang luar biasa dan menginspirasi banyak orang. Nikmati hari istimewamu ini sepenuh hati! 🎁✨</p>
+      <p class="mb-4">Kamu boleh jadi cewe yang independen tapii ingett bill ad aku, temen temen mu jd jangan pernah ngerasa sendiri, apalagi di hari istimewamu.</p>
+      <p class="mb-4">Kamu Kerenn hebat lagi Happy Birthdayy Billaa dah nambah dewasa nihh wkwk, ingett kalo ad ap ap bilang jee yoo jangan sungkan yakk, jangan pernah sungkan.🥰😑☺️</p>
+      <p class="font-bold text-pink-500">- From me -</p>
+      
+      <div class="foto-grid">
+        <img src="billa/IMG_20250725_065417.jpg" alt="Foto 1">
+        <img src="billa/IMG_20250725_065433.jpg" alt="Foto 2">
+        <img src="billa/IMG_20250725_070753.jpg" alt="Foto 3">
+        <img src="billa/IMG_20250725_070720.jpg" alt="Foto 4">
+      </div>
+    </div>
+    <div class="text-center mt-8">
+      <a href="/index.html" class="text-pink-600 font-bold hover:underline">Lihat Album 🎨</a><br>
+      <font color="grey" size="3px">*please rotate your phone</font>
+    </div>
+    <br><br><br>
+    <font color="grey" size="0.1px">siapa tau bisa tar crita crita lagi kek wktu it yakk kalo ga sibuk mhehehe 😄</font>
+  </div>
+</body>
+</html>

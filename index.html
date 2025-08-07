@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memories Flipbook</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="scrolling-bg"></div>
+
+    <canvas id="background-particles"></canvas>
+
+    <h1>ALBUM FOR MEMORIES</h1>
+
+    <div class="book-container">
+      <div id="book">
+        <div class="page" style="z-index: 9">
+          <div class="front">
+            <img src="/billa/cover front.png" alt="Cover Depan" />
+          </div>
+          <div class="back box-image cute-back">
+            <div class="quote-content">
+              <p class="quote-text">
+                "Pergi ke warung beli kue, Ketemu teman malah tertawa. Momen
+                lucu nggak akan luntur, Tersimpan manis di dalam jiwa." <br />
+                <span>- anonim -</span>
+              </p>
+              <div class="emoji top-left">🎂</div>
+              <div class="emoji top-right">🍰</div>
+              <div class="emoji bottom-left">🎉</div>
+              <div class="emoji bottom-right">🧁</div>
+            </div>
+          </div>
+        </div>
+        <div class="page" style="z-index: 8">
+          <div class="front box-image">
+            <img src="billa/IMG_20250725_065433.jpg" alt="Halaman 1 Depan" />
+          </div>
+          <div class="back box-image cute-back">
+            <div class="quote-content">
+              <p class="quote-text">
+                "Kita tidak mengingat hari, kita mengingat momen." <br />
+                <span>- Cesare Pavese</span>
+              </p>
+              <div class="emoji top-left">🍩</div>
+              <div class="emoji top-right">🍨</div>
+              <div class="emoji bottom-left">☺️</div>
+              <div class="emoji bottom-right">💕</div>
+            </div>
+          </div>
+        </div>
+        <div class="page" style="z-index: 7">
+          <div class="front box-image">
+            <img src="billa/IMG_20250725_070737.jpg" alt="Halaman 1 Depan" />
+          </div>
+          <div class="back box-image cute-back">
+            <div class="quote-content">
+              <p class="quote-text">
+                "Ngakak bareng, nangis bareng, kadang gengsi bareng. Tapi itulah
+                kita: bukan sekadar teman, tapi memori berjalan." <br />
+                <span>- anonim -</span>
+              </p>
+              <div class="emoji top-left">🚗</div>
+              <div class="emoji top-right">🚢</div>
+              <div class="emoji bottom-left">🚲</div>
+              <div class="emoji bottom-right">🛩️</div>
+            </div>
+          </div>
+        </div>
+        <div class="page" style="z-index: 6">
+          <div class="front box-image">
+            <img src="billa/IMG_20250725_065417.jpg" alt="Halaman 2 Depan" />
+          </div>
+          <div class="back box-image cute-back">
+            <div class="quote-content">
+              <p class="quote-text">
+                "Waktu terus jalan, tapi kenangan suka bandel— Tetap nongol tiap
+                scroll galeri tengah malam." <br />
+                <span>- you -</span>
+              </p>
+              <div class="emoji top-left">🌌</div>
+              <div class="emoji top-right">☺️</div>
+              <div class="emoji bottom-left">🎉</div>
+              <div class="emoji bottom-right">😑</div>
+            </div>
+          </div>
+        </div>
+        <div class="page" style="z-index: 5">
+          <div class="front box-image">
+            <img src="billa/IMG_20250725_070834.jpg" alt="Halaman 3 Depan" />
+          </div>
+          <div class="back box-image cute-back">
+            <div class="quote-content">
+              <p class="quote-text">
+                "Kenangan lucu itu kayak stiker WA — kadang alay, tapi bikin
+                kangen." <br />
+                <span>- gpt -</span>
+              </p>
+              <div class="emoji top-left">🤖</div>
+              <div class="emoji top-right">📱</div>
+              <div class="emoji bottom-left">⚙️</div>
+              <div class="emoji bottom-right">🧐</div>
+            </div>
+          </div>
+        </div>
+        <div class="page" style="z-index: 4">
+          <div class="front box-image">
+            <img src="billa/IMG_20250725_070856.jpg" alt="Halaman 4 Depan" />
+          </div>
+          <div class="back box-image cute-back">
+            <div class="quote-content">
+              <p class="quote-text">
+                "Kadang yang pengen cepet selesai, kalo dah selesai pengen di
+                ulang" <br />
+                <span>- me -</span>
+              </p>
+              <div class="emoji top-left">🙄</div>
+              <div class="emoji top-right">😓</div>
+              <div class="emoji bottom-left">😖</div>
+              <div class="emoji bottom-right">😶</div>
+            </div>
+          </div>
+        </div>
+        <div class="page" style="z-index: 3">
+          <div class="front box-image">
+            <img src="billa/IMG_20250725_070753.jpg" alt="Halaman 5 Depan" />
+          </div>
+          <div class="back box-image cute-back">
+            <div class="quote-content">
+              <p class="quote-text">
+                "Happy birthdayy billa selamat nambah umur dan tambah dewasa
+                yey" <br />
+                <span>- me -</span>
+              </p>
+              <div class="emoji top-left">🎂</div>
+              <div class="emoji top-right">🍰</div>
+              <div class="emoji bottom-left">🍥</div>
+              <div class="emoji bottom-right">🧁</div>
+            </div>
+          </div>
+        </div>
+        <div class="page" style="z-index: 2">
+          <div class="front box-image">
+            <img src="billa/IMG_20250725_070720.jpg" alt="Halaman  Depan" />
+          </div>
+          <div class="back">
+            <img src="billa/cover back.png" alt="end" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="controls">
+      <button onclick="goPrev()">
+        <i class="fa-solid fa-angles-left"></i>
+      </button>
+      <button onclick="goNext()">
+        <i class="fa-solid fa-angles-right"></i>
+      </button>
+    </div>
+    <canvas id="background-particles"></canvas>
+
+    <div id="orientation-warning">
+      <p>Rote dulu jadiin lanscape hp nya bru bisa buka okeyy ☺️☺️</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
